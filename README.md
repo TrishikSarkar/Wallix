@@ -89,7 +89,7 @@ npm install
 npm run dev
 ```
 
-Open [wallixapp.vercel.app/](https://wallixapp.vercel.app/) in your browser.
+Open [wallixapp.vercel.app](https://wallixapp.vercel.app/) in your browser.
 
 ---
 
