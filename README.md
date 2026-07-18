@@ -1,2 +1,0 @@
-# Wallix
-Wallpaper making website
