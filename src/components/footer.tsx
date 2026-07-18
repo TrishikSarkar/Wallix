@@ -52,7 +52,7 @@ export function Footer() {
               <span className="text-sm font-medium">Support</span>
             </button>
             <a
-              href="https://github.com/TrishikSarkar"
+              href="https://github.com/TrishikSarkar/Wallix"
               target="_blank"
               rel="noopener noreferrer"
               className="text-[#6b7280] transition-colors hover:text-[#111111]"
