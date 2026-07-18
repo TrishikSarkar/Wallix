@@ -63,28 +63,6 @@
 
 ---
 
-## Screenshots
-
-<table>
-  <tr>
-    <td><img src="./images/readme-preview.png" alt="Desktop Preview" /></td>
-    <td><img src="./images/readme-preview.png" alt="Style Selector" /></td>
-  </tr>
-  <tr>
-    <td align="center"><em>Desktop Preview</em></td>
-    <td align="center"><em>Style Selector</em></td>
-  </tr>
-  <tr>
-    <td><img src="./images/readme-preview.png" alt="Mobile Preview" /></td>
-    <td><img src="./images/readme-preview.png" alt="Download Modal" /></td>
-  </tr>
-  <tr>
-    <td align="center"><em>Mobile Preview</em></td>
-    <td align="center"><em>Download Modal</em></td>
-  </tr>
-</table>
-
----
 
 ## Tech Stack
 
@@ -111,7 +89,7 @@ npm install
 npm run dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) in your browser.
+Open [wallixapp.vercel.app](https://wallixapp.vercel.app/) in your browser.
 
 ---
 
