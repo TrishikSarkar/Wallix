@@ -21,7 +21,7 @@
 
 <br />
 
-![Wallix Preview](./public/readme-preview.png)
+![Wallix Preview](./images/readme-preview.png)
 
 ---
 
@@ -67,16 +67,16 @@
 
 <table>
   <tr>
-    <td><img src="./public/readme-preview.png" alt="Desktop Preview" /></td>
-    <td><img src="./public/readme-preview.png" alt="Style Selector" /></td>
+    <td><img src="./images/readme-preview.png" alt="Desktop Preview" /></td>
+    <td><img src="./images/readme-preview.png" alt="Style Selector" /></td>
   </tr>
   <tr>
     <td align="center"><em>Desktop Preview</em></td>
     <td align="center"><em>Style Selector</em></td>
   </tr>
   <tr>
-    <td><img src="./public/readme-preview.png" alt="Mobile Preview" /></td>
-    <td><img src="./public/readme-preview.png" alt="Download Modal" /></td>
+    <td><img src="./images/readme-preview.png" alt="Mobile Preview" /></td>
+    <td><img src="./images/readme-preview.png" alt="Download Modal" /></td>
   </tr>
   <tr>
     <td align="center"><em>Mobile Preview</em></td>
