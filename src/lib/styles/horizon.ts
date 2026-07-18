@@ -27,7 +27,7 @@ function draw(
     ctx.beginPath();
     ctx.moveTo(-2, bandY);
     for (let x = -2; x <= w + 2; x += 3) {
-      const noiseVal = fbm(x * 0.003 + i * 1.5, seed + 50, 3);
+      const noiseVal = fbm(x * (2.88 / w) + i * 1.5, seed + 50, 3);
       const y = bandY + noiseVal * h * 0.02 * curveStrength;
       ctx.lineTo(x, y);
     }

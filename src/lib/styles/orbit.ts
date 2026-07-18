@@ -23,7 +23,7 @@ function draw(
 
   for (let i = 0; i < circleCount; i++) {
     const t = i / circleCount;
-    const r = maxR * t + orbitOffset;
+    const r = maxR * t + orbitOffset * (Math.min(w, h) / 540);
     const rot = rng() * Math.PI * 2;
 
     ctx.save();
@@ -35,12 +35,12 @@ function draw(
     ctx.closePath();
     ctx.fillStyle = 'transparent';
     ctx.strokeStyle = getColor(colors, t * 0.8 + 0.1, inverted);
-    ctx.lineWidth = 1.5 + t * 3 + rng() * 1;
+    ctx.lineWidth = Math.min(w, h) * (1.5 + t * 3 + rng() * 1) / 540;
     ctx.stroke();
 
     const dotAngle = rng() * Math.PI * 2;
     const dotR = r;
-    const dotSize = 2 + t * 3;
+    const dotSize = Math.min(w, h) * (2 + t * 3) / 540;
     ctx.beginPath();
     ctx.arc(Math.cos(dotAngle) * dotR, Math.sin(dotAngle) * dotR, dotSize, 0, Math.PI * 2);
     ctx.fillStyle = getColor(colors, t * 0.5 + 0.3, inverted);

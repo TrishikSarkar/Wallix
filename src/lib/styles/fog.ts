@@ -43,7 +43,7 @@ function draw(
         const dist = Math.sqrt(dx * dx + dy * dy);
 
         if (dist < 1.5) {
-          const noiseVal = fbm(x * 0.003 + y * 0.002 + l * 50, seed, 2);
+          const noiseVal = fbm(x * (2.88 / w) + y * (1.08 / h) + l * 50, seed, 2);
           const falloff = Math.exp(-dist * dist * 2) * (0.3 + noiseVal * 0.3);
           const t = (l + 0.5) / fogLayers;
           const color = getColor(colors, 0.3 + t * 0.4, inverted);

@@ -34,7 +34,7 @@ function draw(
       ctx.bezierCurveTo(cp1x, cp1y, cp2x, cp2y, x, y);
     }
     ctx.strokeStyle = getColor(colors, t, inverted);
-    ctx.lineWidth = (1 + rng() * 2) * amplitude;
+    ctx.lineWidth = Math.min(w, h) * (1 + rng() * 2) * amplitude / 540;
     ctx.stroke();
   }
 }

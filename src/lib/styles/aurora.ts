@@ -36,7 +36,7 @@ function draw(
         const dist = Math.sqrt(dx * dx + dy * dy);
 
         if (dist < 1.5) {
-          const wave = Math.sin(y * 0.02 + x * 0.005 + seed + b * 2) * 0.3 + 0.7;
+          const wave = Math.sin(y * (10.8 / h) + x * (4.8 / w) + seed + b * 2) * 0.3 + 0.7;
           const falloff = Math.exp(-dist * dist * 1.5) * wave * glowIntensity;
           const t = (b + 0.5) / bandCount;
           const color = getColor(colors, t, inverted);

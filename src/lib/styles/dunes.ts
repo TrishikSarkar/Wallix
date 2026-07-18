@@ -27,10 +27,13 @@ function draw(
     ctx.beginPath();
     ctx.moveTo(-2, h + 2);
     for (let x = -2; x <= w + 2; x += 2) {
-      const wind = fbm(x * 0.005, seed + i * 50, 2) * 50;
+      const windFreq = 4.8 / w;
+      const wind = fbm(x * windFreq, seed + i * 50, 2) * 50 * (w / 960);
+      const secondaryFreq = 2.88 / w;
+      const waveFreq = freq * (960 / w);
       const y = baseY
-        + Math.sin((x + wind) * freq + phase) * curveAmp
-        + fbm(x * 0.003 + i * 100, seed, 2) * curveAmp * 0.5;
+        + Math.sin((x + wind) * waveFreq + phase) * curveAmp
+        + fbm(x * secondaryFreq + i * 100, seed, 2) * curveAmp * 0.5;
       ctx.lineTo(x, y);
     }
     ctx.lineTo(w + 2, h + 2);

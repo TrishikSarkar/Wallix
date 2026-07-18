@@ -18,7 +18,7 @@ function draw(
   ctx.fillRect(0, 0, w, h);
 
   const maxR = Math.sqrt(w * w + h * h) * radiusMultiplier;
-  const originX = w * (rng() * 0.2 + 0.4) + offset;
+  const originX = w * (rng() * 0.2 + 0.4) + offset * (w / 960);
   const originY = h * (rng() * 0.3 + 1.2);
 
   for (let i = ringCount; i >= 0; i--) {

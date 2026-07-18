@@ -18,9 +18,11 @@ function draw(
   ctx.fillRect(0, 0, w, h);
 
   const baseSpacing = (h / lineCount) * spacing;
-  const offsetX = rng() * 200;
+  const offsetX = rng() * w * (200 / 960);
 
-  ctx.lineWidth = 1.5;
+  ctx.lineWidth = Math.max(1, w * (1.5 / 960));
+
+  const noiseFreq = (960 * 0.005) / w;
 
   for (let i = 0; i < lineCount; i++) {
     const t = i / lineCount;
@@ -28,7 +30,7 @@ function draw(
 
     ctx.beginPath();
     for (let x = -2; x <= w + 2; x += 3) {
-      const noiseVal = fbm((x + offsetX) * 0.005 + i * 0.3, seed, 3);
+      const noiseVal = fbm((x + offsetX) * noiseFreq + i * 0.3, seed, 3);
       const y = baseY + noiseVal * h * 0.08 * curveStrength;
       if (x === -2) ctx.moveTo(x, y);
       else ctx.lineTo(x, y);

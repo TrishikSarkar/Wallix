@@ -25,9 +25,9 @@ function draw(
     ctx.beginPath();
     ctx.moveTo(-2, h + 2);
     for (let x = -2; x <= w + 2; x += 2) {
-      const noise1 = Math.sin(x * 0.003 * smoothness + i * 2.1 + seed) * 0.5 + 0.5;
-      const noise2 = Math.sin(x * 0.007 * smoothness + i * 3.7 + seed * 2) * 0.3 + 0.3;
-      const noise3 = fbm(x * 0.004 + i * 50, seed + 400, 2) * 0.2;
+      const noise1 = Math.sin(x * (2.88 / w) * smoothness + i * 2.1 + seed) * 0.5 + 0.5;
+      const noise2 = Math.sin(x * (6.72 / w) * smoothness + i * 3.7 + seed * 2) * 0.3 + 0.3;
+      const noise3 = fbm(x * (3.84 / w) + i * 50, seed + 400, 2) * 0.2;
       const combined = noise1 + noise2 + noise3;
       const hillY = baseY - combined * height;
       ctx.lineTo(x, hillY);
