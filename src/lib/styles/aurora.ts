@@ -1,6 +1,14 @@
 import type { StyleDefinition, StyleParams } from './types';
 import { mulberry32, fbm, getColor, getBgColor } from './shared';
 
+function hexToRgb(hex: string): [number, number, number] {
+  return [
+    parseInt(hex.slice(1, 3), 16),
+    parseInt(hex.slice(3, 5), 16),
+    parseInt(hex.slice(5, 7), 16),
+  ];
+}
+
 function draw(
   ctx: CanvasRenderingContext2D,
   w: number, h: number,
@@ -14,16 +22,23 @@ function draw(
   const glowIntensity = params?.glowIntensity ?? 1;
   const width_ = params?.width ?? 1;
 
-  ctx.fillStyle = getBgColor(colors, inverted);
-  ctx.fillRect(0, 0, w, h);
+  const [bgR, bgG, bgB] = hexToRgb(getBgColor(colors, inverted));
 
   const imageData = ctx.createImageData(w, h);
   const data = imageData.data;
+
+  for (let i = 0; i < data.length; i += 4) {
+    data[i] = bgR;
+    data[i + 1] = bgG;
+    data[i + 2] = bgB;
+    data[i + 3] = 255;
+  }
 
   for (let y = 0; y < h; y++) {
     for (let x = 0; x < w; x++) {
       const idx = (y * w + x) * 4;
       let total = 0;
+      let sumR = 0, sumG = 0, sumB = 0;
 
       for (let b = 0; b < bandCount; b++) {
         const bx = w * (0.1 + rng() * 0.8);
@@ -44,13 +59,18 @@ function draw(
           const cg = parseInt(color.slice(color.indexOf(',') + 1, color.lastIndexOf(',')));
           const cb = parseInt(color.slice(color.lastIndexOf(',') + 1, color.indexOf(')')));
           total += falloff;
-          data[idx] = Math.min(255, data[idx] + cr * falloff);
-          data[idx + 1] = Math.min(255, data[idx + 1] + cg * falloff);
-          data[idx + 2] = Math.min(255, data[idx + 2] + cb * falloff);
+          sumR += cr * falloff;
+          sumG += cg * falloff;
+          sumB += cb * falloff;
         }
       }
 
-      data[idx + 3] = Math.min(255, Math.round(total * 255));
+      if (total > 0) {
+        const alpha = Math.min(1, total);
+        data[idx] = Math.min(255, Math.round(sumR * alpha + bgR * (1 - alpha)));
+        data[idx + 1] = Math.min(255, Math.round(sumG * alpha + bgG * (1 - alpha)));
+        data[idx + 2] = Math.min(255, Math.round(sumB * alpha + bgB * (1 - alpha)));
+      }
     }
   }
 

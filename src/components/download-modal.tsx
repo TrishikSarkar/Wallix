@@ -6,7 +6,6 @@ import { motion } from "framer-motion";
 import { useWallpaper } from "@/lib/wallpaper-context";
 import { palettes } from "@/lib/utils";
 import { exportWallpaper } from "@/lib/wallpaper-engine";
-import { Toast } from "./toast";
 
 interface DownloadModalProps {
   open: boolean;
@@ -15,7 +14,6 @@ interface DownloadModalProps {
 
 export function DownloadModal({ open, onClose }: DownloadModalProps) {
   const { style, palette, seed, mode, styleParams, customPalettes } = useWallpaper();
-  const [toast, setToast] = useState<string | null>(null);
   const [downloading, setDownloading] = useState(false);
   const p = palettes.find((p) => p.id === palette) ?? customPalettes.find((p) => p.id === palette);
   const inverted = mode === 'light';
@@ -36,7 +34,6 @@ export function DownloadModal({ open, onClose }: DownloadModalProps) {
         styleParams,
       );
       onClose();
-      setToast(isDesktop ? 'Desktop wallpaper downloaded' : 'Mobile wallpaper downloaded');
     } catch {
       // export failed silently
     } finally {
@@ -107,11 +104,6 @@ export function DownloadModal({ open, onClose }: DownloadModalProps) {
         </motion.div>
       </motion.div>
 
-      <Toast
-        message={toast ?? ''}
-        visible={toast !== null}
-        onClose={() => setToast(null)}
-      />
     </>
   );
 }
