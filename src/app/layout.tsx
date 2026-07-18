@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
+import { Analytics } from "@vercel/analytics/next";
 import "./globals.css";
 import { WallpaperProvider } from "@/lib/wallpaper-context";
 
@@ -28,6 +29,7 @@ export default function RootLayout({
     <html lang="en" className={geistSans.variable}>
       <body className="font-sans antialiased">
         <WallpaperProvider>{children}</WallpaperProvider>
+        <Analytics />
       </body>
     </html>
   );
