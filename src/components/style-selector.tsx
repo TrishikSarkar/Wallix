@@ -67,7 +67,7 @@ function StyleThumbnail({ styleId, name, selected, onClick }: {
   const [hovered, setHovered] = useState(false);
 
   return (
-    <div className="relative inline-flex">
+    <div className="relative inline-flex flex-col items-center">
       <Tooltip label={name} visible={hovered} />
       <motion.button
         onClick={onClick}
@@ -100,6 +100,11 @@ function StyleThumbnail({ styleId, name, selected, onClick }: {
           style={{ borderRadius: THUMB_RADIUS }}
         />
       </motion.button>
+      {selected && (
+        <span className="hidden max-md:block text-[9px] font-medium text-[#111111] mt-0.5 truncate max-w-[68px] text-center leading-tight">
+          {name}
+        </span>
+      )}
     </div>
   );
 }

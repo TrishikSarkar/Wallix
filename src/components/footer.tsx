@@ -23,9 +23,9 @@ export function Footer() {
   return (
     <>
       <footer className="w-full px-6 py-4">
-        <div className="mx-auto flex max-w-7xl items-center justify-between text-sm">
+        <div className="mx-auto flex max-w-7xl items-center justify-between text-sm max-md:flex-col max-md:items-center max-md:gap-3 max-md:text-center">
           <p className="text-[#6b7280]">&copy; 2026 Wallix</p>
-          <p className="text-[#6b7280]">
+          <p className="text-[#6b7280] max-md:order-3">
             Created By{" "}
             <a
               href="https://www.linkedin.com/in/trishik-sarkar/"
@@ -36,7 +36,7 @@ export function Footer() {
               @TrishikSarkar
             </a>
           </p>
-          <div className="flex items-center gap-4">
+          <div className="flex items-center gap-4 max-md:order-2">
             <a
               href="mailto:trishiksarkar1508@gmail.com?subject=Wallix%20Feedback&body=Hello%20Trishik%2C%0A%0AI%20would%20like%20to%20share%20the%20following%20feedback%20about%20Wallix%3A%0A----------------------------"
               className="flex items-center gap-1.5 text-[#6b7280] transition-colors hover:text-[#111111]"

@@ -56,7 +56,7 @@ export function PaletteSelector({
       <label className="mb-1.5 block text-[13px] font-semibold tracking-[0.25em] text-[#8A8A8A]">
         PALETTE
       </label>
-      <div className="grid grid-cols-6 gap-1.5 w-fit mx-auto">
+      <div className="grid grid-cols-6 gap-1.5 w-fit mx-auto max-md:grid-cols-4 max-md:w-full">
         {palettes.map((p) => (
           <PaletteCard
             key={p.id}

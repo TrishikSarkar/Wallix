@@ -36,11 +36,11 @@ export function LockScreenOverlay({ theme, deviceType }: { theme: 'dark' | 'ligh
   if (deviceType === 'mobile') {
     return (
       <div className="absolute inset-0 flex flex-col items-center justify-start pt-[22%] pointer-events-none select-none">
-        <span className={`${textColor} text-[5px] font-semibold leading-tight opacity-90`}>
+        <span className={`${textColor} text-[8px] font-semibold leading-tight opacity-90`}>
           {date}
         </span>
         <span
-          className={`${textColor} text-[11px] font-bold leading-tight -mt-[1px]`}
+          className={`${textColor} text-[18px] font-bold leading-tight -mt-[1px]`}
           style={{ fontVariantNumeric: 'tabular-nums' }}
         >
           {time}
